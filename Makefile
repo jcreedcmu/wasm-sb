@@ -13,7 +13,7 @@ foo.wasm: foo.sml
 		-output foo.wasm \
 		-default-ann 'allowFFI true' \
 		-export-header /dev/null \
-		foo.sml
+		-verbose 1 foo.sml
 
 serve:
 	python3 -m http.server
