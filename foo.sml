@@ -1,1 +1,2 @@
-fun entry () = print "hello, world!\n"
+fun entry () => print "hello\n";
+_export "entry" entry;

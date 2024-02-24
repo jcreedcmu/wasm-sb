@@ -4,6 +4,9 @@
 
 MLTON=/home/jcreed/pgit/mlton-wasm2-INSTALL/bin/mlton
 
+watch:
+	node build.js watch
+
 foo.wasm:
 	$(MLTON) -target wasm32-unknown-wasi -format libexecutable -output foo.wasm foo.sml
 
