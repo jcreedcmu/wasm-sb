@@ -12,7 +12,6 @@ foo.wasm: foo.sml
 		-format libexecutable \
 		-output foo.wasm \
 		-default-ann 'allowFFI true' \
-		-export-header /dev/null \
 		-verbose 1 foo.sml
 
 serve:
