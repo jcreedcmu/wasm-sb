@@ -32,8 +32,14 @@ async function go() {
   };
 
   const instance = await WebAssembly.instantiateStreaming(fetch("foo.wasm"), imports);
-  const exports = instance.instance.exports;
-  mem = exports.memory as WebAssembly.Memory;
+  const exports = instance.instance.exports as {
+    memory: WebAssembly.Memory;
+    foo_open(x: number, y: number): void;
+    entry(): void;
+  };
+  mem = exports.memory;
+  exports.foo_open(0, 0);
+  exports.entry();
   console.log(exports);
 }
 
