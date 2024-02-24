@@ -7,8 +7,13 @@ MLTON=/home/jcreed/pgit/mlton-wasm2-INSTALL/bin/mlton
 watch:
 	node build.js watch
 
-foo.wasm:
-	$(MLTON) -target wasm32-unknown-wasi -format libexecutable -output foo.wasm foo.sml
+foo.wasm: foo.sml
+	$(MLTON) -target wasm32-unknown-wasi \
+		-format libexecutable \
+		-output foo.wasm \
+		-default-ann 'allowFFI true' \
+		-export-header /dev/null \
+		foo.sml
 
 serve:
 	python3 -m http.server
